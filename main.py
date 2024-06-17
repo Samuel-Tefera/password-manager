@@ -26,3 +26,7 @@ window = Tk()
 window.title("Password Manager")
 window.config(padx=50, pady=50) 
 
+logo_img = PhotoImage(file="image/logo.png")
+canvas = Canvas(width=200, height=200)
+canvas.create_image(100,100, image=logo_img)
+canvas.grid(column=1, row=0)
