@@ -62,6 +62,21 @@ def save():
 
 
 
+#----------------------------Search Website--------------------------- #
+def find_password():
+    try:
+        with open("data.json") as password_file:
+            data = json.load(password_file)
+    except FileNotFoundError:
+         messagebox.showinfo(title="Password Manger", message="No Data File Found.")
+    else:
+        website = website_input.get()
+        if website in data:
+             messagebox.showinfo(title=website, message=f"Email:{data[website]['Email']}\n" 
+                                f"Password:{data[website]['Password']}")
+        else:
+             messagebox.showinfo(title=website, message=f"No details for the {website} exists.")
+
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager")
