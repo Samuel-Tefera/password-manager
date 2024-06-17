@@ -48,3 +48,11 @@ email_input.grid(column=1, row=2, columnspan=2)
 email_input.insert(0, "samueltefera772@gmail.com")
 password_input = Entry(width=32, bg="white")
 password_input.grid(column=1, row=3)
+
+#Button
+generate_button = Button(text="Generate Password", command=generate_password)
+generate_button.grid(column=2, row=3)
+add_button = Button(text="Add", width=43, command=save)
+add_button.grid(column=1, row=4, columnspan=2)
+search_button = Button(text="Search", width=14, command=find_password)
+search_button.grid(column=2, row=1)
