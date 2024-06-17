@@ -1,6 +1,7 @@
 from random import choice, randint, shuffle
 from tkinter import *
-
+from tkinter import messagebox
+import json
 
 
 
@@ -19,6 +20,46 @@ def generate_password():
     password_list += (choice(symbols) for i in range(randint(2, 4)))
     shuffle(password_list)
     password = "".join(password_list)
+    
+    password_input.delete(0, END)
+    password_input.insert(0, password)
+    
+
+# ---------------------------- SAVE PASSWORD ------------------------------- #
+def save():
+    website = website_input.get()
+    email = email_input.get()
+    password = password_input.get()
+
+    password_dict = {
+        website:
+            {
+                "Email" : email,
+                "Password" : password
+            }
+        }
+
+    if website == "" or email == "" or password == "":
+        messagebox.showerror(title="Password Manager", 
+                            message="Please don't leave any empty field!")
+        
+    else:
+        try:
+            with open("data.json", mode="r") as password_file:
+                data = json.load(password_file)
+                data.update(password_dict)
+            with open("data.json", mode="w") as password_file:
+                json.dump(data, password_file, indent=4)
+
+        except FileNotFoundError:
+                with open("data.json", mode="w") as password_file:
+                    json.dump(password_dict, password_file, indent=4)
+
+        finally:
+                website_input.delete(0, END)
+                password_input.delete(0, END)
+                website_input.focus()
+
 
 
 # ---------------------------- UI SETUP ------------------------------- #
