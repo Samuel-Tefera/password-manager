@@ -30,3 +30,11 @@ logo_img = PhotoImage(file="image/logo.png")
 canvas = Canvas(width=200, height=200)
 canvas.create_image(100,100, image=logo_img)
 canvas.grid(column=1, row=0)
+
+#Labels
+website_label = Label(text="Website:", font=(12))
+website_label.grid(column=0, row=1) 
+email_label = Label(text="Email/Username:", font=(12))
+email_label.grid(column=0, row=2)
+password_label = Label(text="Password:", font=(12))
+password_label.grid(column=0, row=3)
