@@ -1,4 +1,6 @@
 from random import choice, randint, shuffle
+from tkinter import *
+
 
 
 
@@ -17,3 +19,10 @@ def generate_password():
     password_list += (choice(symbols) for i in range(randint(2, 4)))
     shuffle(password_list)
     password = "".join(password_list)
+
+
+# ---------------------------- UI SETUP ------------------------------- #
+window = Tk()
+window.title("Password Manager")
+window.config(padx=50, pady=50) 
+
