@@ -56,3 +56,5 @@ add_button = Button(text="Add", width=43, command=save)
 add_button.grid(column=1, row=4, columnspan=2)
 search_button = Button(text="Search", width=14, command=find_password)
 search_button.grid(column=2, row=1)
+
+window.mainloop()
